@@ -1,104 +1,75 @@
-\# Smart Energy Grid Guardian
+# Smart Energy Grid Guardian
 
-\## Anomaly Detection and Predictive Analytics for Solar Power Systems
+## Anomaly Detection and Predictive Analytics for Solar Power Systems
 
+---
 
+## 📌 Overview
 
-This project provides a robust, dual-approach solution for solar power management: an \*\*LSTM Autoencoder\*\* for real-time anomaly detection and a \*\*Reduction-based Forecaster\*\* for 24-hour electricity generation prediction. The system is designed to enhance grid stability and optimize resource allocation, specifically addressing challenges in the energy sector.
+This project provides a robust dual-approach solution for solar power systems:
 
+- An **LSTM Autoencoder** for real-time anomaly detection  
+- A **time-series forecasting pipeline** for 24-hour electricity generation prediction  
 
+The system improves grid stability, predictive maintenance, and renewable energy optimization.
 
-\---
+---
 
+## 🚀 Key Features
 
+- **Anomaly Detection:**  
+  Uses an unsupervised LSTM Autoencoder to learn normal operational patterns and detect sensor failures or grid disturbances using reconstruction error.
 
-\## 🚀 Key Features
+- **Generation Forecasting:**  
+  Implements a multivariate time-series forecasting pipeline using `sktime`, comparing models such as Random Forest, Gradient Boosting, and Ridge Regression.
 
+- **Seasonal Awareness:**  
+  Applies cyclical feature engineering (sin/cos transformations) for hour, day, and month to capture periodic energy production patterns.
 
+- **Robust Evaluation:**  
+  Uses expanding window cross-validation and grid search for reliable model selection and hyperparameter tuning.
 
-\* \*\*Anomaly Detection:\*\* Uses an Unsupervised \*\*LSTM Autoencoder\*\* to learn normal operational patterns and identify sensor failures or grid disturbances by analyzing reconstruction errors.
+---
 
-\* \*\*Generation Forecasting:\*\* Implements a multivariate time-series forecasting pipeline using `sktime`, comparing various regressors (Random Forest, Gradient Boosting, Ridge) to predict electricity generation.
+## 🛠 Methodology
 
-\* \*\*Seasonal Awareness:\*\* Integrates \*\*Cyclical Feature Engineering\*\* (Sin/Cos transformations of time data) to effectively handle seasonal and daily production cycles, reducing bias in anomaly detection.
+1. **Data Preparation**  
+   Cleaning, normalization, and creation of cyclical time features (sin/cos encoding for hour, day, and month).
 
-\* \*\*Robust Evaluation:\*\* Employs Expanding Window Cross-Validation and Grid Search to ensure model reliability and optimal hyperparameter selection.
+2. **Anomaly Detection**  
+   The LSTM Autoencoder is trained on normal data only. Reconstruction error is used to define anomaly thresholds.
 
+3. **Forecasting**  
+   Uses `sktime`’s `make_reduction` and `MultiplexForecaster` to evaluate multiple regressors and select the best model based on MAE.
 
+---
 
-\---
+## 💡 Impact in Energy Systems
 
+This project acts as an early warning system for solar energy infrastructure:
 
+- **Proactive Maintenance:** Detects anomalies before system failures occur  
+- **Cost Optimization:** Reduces unnecessary inspections by isolating real faults  
+- **Grid Stability:** Improves renewable integration through accurate forecasting  
 
-\## 🛠 Methodology
+---
 
+## 📊 Performance Overview
 
+- **Anomaly Detection:** Successfully isolates abnormal production patterns caused by sensor noise or environmental effects  
+- **Forecasting:** Captures daily sinusoidal energy production cycles with high accuracy for 24-hour predictions  
 
-1\.  \*\*Data Preparation:\*\* Cleaning, normalization, and generating cyclical time features (`sin`/`cos` for hour, day, and month) to improve temporal awareness.
+---
 
-2\.  \*\*Anomaly Detection:\*\* Training on normal historical data to establish a reconstruction threshold. Sequences with high reconstruction error are flagged as anomalies. 
-
-3\.  \*\*Forecasting:\*\* Utilizing `sktime`'s `make\_reduction` and `MultiplexForecaster` to dynamically select the best-performing model based on Mean Absolute Error (MAE). 
-
-
-
-\---
-
-
-
-\## 💡 Impact in the Energy Crisis
-
-
-
-This project acts as an \*\*Early Warning System\*\* for solar energy infrastructure:
-
-\* \*\*Proactive Maintenance:\*\* Identifies subtle anomalies before they escalate into widespread grid outages.
-
-\* \*\*Resource Optimization:\*\* Enables maintenance teams to focus only on genuine system faults, saving time and costs.
-
-\* \*\*Grid Stability:\*\* Improved forecasting allows for better integration of renewable energy into the grid, minimizing the need for emergency power cut-offs.
-
-
-
-\---
-
-
-
-\## 📊 Performance Overview
-
-
-
-\* \*\*Anomaly Detection:\*\* Effectively isolates abnormal production patterns caused by sensor degradation or unmodeled environmental factors.
-
-\* \*\*Forecasting:\*\* The model captures the sinusoidal daily cycle with high fidelity, providing reliable 24-hour projections for grid management.
-
-
-
-\---
-
-
-
-\## ⚙️ Prerequisites \& Installation
-
-
-
-To run this project, ensure you have Python installed and the following dependencies:
-
-
+## ⚙️ Installation
 
 ```bash
-
 pip install pandas numpy scikit-learn tensorflow sktime
 
+## 📝 License
 
+This project is licensed under the **Academic & Research License**.
 
+It is intended solely for educational and research purposes in the field of smart grid systems and renewable energy analytics.
 
-
-\## 📝 License
-
-This project is licensed under the \*\*Academic \& Research License\*\*. 
-
-It is intended solely for educational, academic, and research purposes regarding smart grid sustainability. 
-
-Any commercial use or redistribution requires explicit permission from the author.
-
+Commercial use, redistribution, or deployment in production environments is not permitted without explicit written permission from the author.
