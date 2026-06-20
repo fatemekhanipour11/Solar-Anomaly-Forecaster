@@ -63,8 +63,11 @@ This project acts as an early warning system for solar energy infrastructure:
 
 ## ⚙️ Installation
 
-```bash
-pip install pandas numpy scikit-learn tensorflow sktime
+```bash id="repo2"
+pip install -r requirements.txt
+```
+
+
 
 ## 📝 License
 
